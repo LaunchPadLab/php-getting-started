@@ -44,6 +44,15 @@
         <li><a href="https://devcenter.heroku.com/articles/getting-started-with-php">Getting Started with PHP on Heroku</a></li>
         <li><a href="https://devcenter.heroku.com/articles/deploying-php">Deploying PHP Apps on Heroku</a></li>
       </ul>
+      <ul>
+        {% for topic in topics %}
+          <li>
+            <a href="/topics/{{ topic }}">
+              {{ topic }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
     </div>
   </div> <!-- row -->
    <div class="alert alert-info text-center" role="alert">
