@@ -14,7 +14,7 @@
       },
       "scripts": {
         "test-setup": "",
-        "test": "phpunit sample-test.php"
+        "test": "phpunit test/EmailTest.php"
       }
     }
   }
