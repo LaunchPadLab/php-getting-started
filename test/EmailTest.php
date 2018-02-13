@@ -1,37 +1,20 @@
 <?php
-declare(strict_types=1);
 
-final class EmailTest
+use PHPUnit\Framework\TestCase;
+
+class EmailTest extends TestCase
 {
-    private $email;
-
-    private function __construct(string $email)
+    public function testPushAndPop()
     {
-        $this->ensureIsValidEmail($email);
+        $stack = [];
+        $this->assertEquals(0, count($stack));
 
-        $this->email = $email;
-    }
+        array_push($stack, 'foo');
+        $this->assertEquals('foo', $stack[count($stack)-1]);
+        $this->assertEquals(1, count($stack));
 
-    public static function fromString(string $email): self
-    {
-        return new self($email);
+        $this->assertEquals('foo', array_pop($stack));
+        $this->assertEquals(0, count($stack));
     }
-
-    public function __toString(): string
-    {
-        return $this->email;
-    }
-
-    private function ensureIsValidEmail(string $email): void
-    {
-        echo("Running my tests!");
-        // if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        //     throw new InvalidArgumentException(
-        //         sprintf(
-        //             '"%s" is not a valid email address',
-        //             $email
-        //         )
-        //     );
-        // }
-    }
-}  
+}
+?>
