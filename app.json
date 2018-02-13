@@ -2,5 +2,20 @@
   "name": "Start on Heroku: PHP",
   "description": "A barebones PHP app that makes use of the Silex web framework",
   "repository": "https://github.com/heroku/php-getting-started",
-  "addons": []
+  "addons": [
+    "jawsdb:kitefin",
+    "sendgrid:starter",
+    "papertrail:choklad"
+  ],
+  "environments": {
+    "test": {
+      "env": {
+        "PHOTON_TORPEDOES": "online"
+      },
+      "scripts": {
+        "test-setup": "",
+        "test": "phpunit test/EmailTest.php"
+      }
+    }
+  }
 }
